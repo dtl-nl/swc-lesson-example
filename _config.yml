@@ -49,6 +49,8 @@ collections:
     permalink: /:path/
   extras:
     output: true
+  all_in_one:
+    output: true
 
 # Set the default layout for things in the episodes collection.
 defaults:
@@ -57,6 +59,11 @@ defaults:
       type: episodes
     values:
       layout: episode
+  - scope:
+      path: ""
+      type: all_in_one
+    values:
+      layout: base
 
 # Files and directories that are not to be copied.
 exclude:

@@ -1,1 +1,5 @@
+{% if page.layout == "episode" %}
+<h1 class="maintitle">{{ page.title }}</h1>
+{% else %}
 <h1 class="maintitle"><a href="{{ site.github.url }}/">{{ site.title }}</a>{% if page.title %}: {{ page.title }}{% endif %}</h1>
+{% endif %}
