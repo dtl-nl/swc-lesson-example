@@ -1,0 +1,1024 @@
+---
+---
+<h1 class="maintitle"><a href="/">Lesson Title</a></h1><p>This lesson shows how to use the
+<a href="https://software-carpentry.org">Software Carpentry</a> and
+<a href="http://datacarpentry.org">Data Carpentry</a> lesson template.
+For guidelines on how to help improve our lessons and this template,
+please see <a href="/blob/gh-pages/CONTRIBUTING.md">the contribution guidelines</a>;
+for guidelines on how to set up your machine to preview changes locally,
+please see <a href="/setup/">the setup instructions</a>.</p><blockquote class="prereq">
+  <h2 id="prerequisites">Prerequisites</h2>
+
+  <p>Use the <code class="highlighter-rouge">.prereq</code> style to specify prerequisites.</p>
+</blockquote><blockquote class="checklist">
+  <h2 id="ten-things-you-need-to-know">Ten Things You Need To Know</h2>
+
+  <ol>
+    <li>Don’t panic.</li>
+    <li>Create a new lesson by using GitHub Import, <em>not</em> by forking.</li>
+    <li>Run <code class="highlighter-rouge">bin/lesson_inititialize.py</code> <em>once</em> in a new lesson repository to set up standard files.</li>
+    <li>Run <code class="highlighter-rouge">make lesson-check</code> to check that the lesson is formatted correctly.</li>
+    <li>Put lesson episodes in <code class="highlighter-rouge">_episodes</code> (or <code class="highlighter-rouge">_episodes_rmd</code> if you are writing in RMarkdown).</li>
+    <li>Run <code class="highlighter-rouge">make serve</code> to preview the lesson website locally.</li>
+    <li>Do <em>not</em> commit the generated HTML files in the <code class="highlighter-rouge">_site</code> directory.</li>
+    <li>Style blocks and code samples by putting <code class="highlighter-rouge"><span class="p">{</span><span class="err">:</span><span class="w"> </span><span class="err">.stylename</span><span class="p">}</span></code> <em>after</em> the block or code.</li>
+    <li>Put solutions inside challenges using nested blockquotes.</li>
+    <li>File issues and template fixes in the <a href="https://github.com/swcarpentry/styles/">styles repository</a>,
+and enhancements to this documentation in this one.</li>
+  </ol>
+</blockquote><h1 class="maintitle">Lesson Design</h1><blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 10 min
+      <br>
+      <strong>Exercises:</strong> 0 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How do we design lessons?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Describe the reverse instructional design process.</p>
+</li>
+	
+	<li><p>Describe the purpose and implementation of formative assessments.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote><p>This episode describes how we go about designing lessons and why.
+For more information on how we design lessons and why,
+see <a href="http://swcarpentry.github.io/instructor-training/">the instructor training course</a>.</p><h2 id="reverse-instructional-design">Reverse Instructional Design</h2><p>In principle,
+we design lessons in four stages:</p><ol>
+  <li>
+    <p><strong>Conceptual</strong>:
+describe who the lesson is for,
+what its overall goals are,
+and how long it is going to be.
+For example,
+the lesson might be for people who have taught themselves
+how to write page-long statistical analyses in R using RStudio,
+but have never written functions or run programs from the Unix shell prompt.
+Its overall goal might be to teach them how to write modular multi-page programs
+and how to use dplyr to regularize their analyses,
+and the time allotted might be half a day.
+It’s often helpful to use <a href="http://swcarpentry.github.io/instructor-training/07-memory/">concept maps</a> in this stage.</p>
+  </li>
+  <li>
+    <p><strong>Summative Assessment</strong>:
+figure out what learners will do to demonstrate that they have mastered the material.
+This is the most important step of the four,
+since it is what <em>actually</em> determines the scope of the lesson.
+In this case,
+the summative assessment might be to write a four-function program
+to load, clean up, analyze, and plot a collection of medical data sets.</p>
+  </li>
+  <li>
+    <p><strong>Formative Assessments</strong>:
+describe the exercises that learners will do during the lesson.
+To switch examples for a moment,
+it wouldn’t be fair to ask someone to parallel park on a driving test
+if they’d never done it before,
+so two formative assessments in a driving course might be
+“back up” and “parallel park between some safety cones”.</p>
+  </li>
+  <li>
+    <p><strong>Connect the Dots</strong>:
+put the formative assessments in order
+and develop lesson episodes to go from one to the next.
+It is common to sketch a concept map for each lesson episode,
+both to outline its key ideas
+and to check that it’s not too big.
+The ordering of lesson episodes is constrained by dependencies
+but is usually not completely determined by them:
+there are often several different orders in which ideas can sensibly be introduced.
+It is common to discover a need for more formative assessments at this stage;
+to continue with the driving example,
+the lesson author might realize that a third exercise on turning while backing up is needed
+(since many people initially turn the steering wheel the wrong way when they’re in reverse).</p>
+  </li>
+</ol><p>In practice, the process often looks more like this:</p><ol>
+  <li>
+    <p>Draft the assumptions and major outcomes.</p>
+  </li>
+  <li>
+    <p>Describe the summative assessments for each half day of material
+(i.e., one summative assessment for a three-hour lesson and two for a full-day lesson).</p>
+  </li>
+  <li>
+    <p>Write a one- or two-line description of the formative assessments building up to those summative assessments.
+These should be paced at roughly 15-minute intervals,
+i.e.,
+four per hour.</p>
+  </li>
+  <li>
+    <p>Get early feedback from peers,
+particularly on how realistic the time estimates are.</p>
+  </li>
+  <li>
+    <p>Do a second pass to flesh out the assumptions and assessments.</p>
+  </li>
+  <li>
+    <p>Get more feedback.</p>
+  </li>
+  <li>
+    <p>Start writing the lesson content.</p>
+  </li>
+</ol><p>Steps 1-6 are best done in a single Markdown file for easy review;
+if you are using this template,
+you should call it <code class="highlighter-rouge">_extras/design.md</code>.
+Once work starts on step 7,
+the detailed milestones should be moved into lesson episode files.
+For an example of this,
+see the <a href="https://swcarpentry.github.io/python-novice-gapminder/">novice Python lesson using the gapminder data</a>.</p><h2 id="what-makes-a-good-formative-assessment">What Makes a Good Formative Assessment</h2><p>The two purposes of formative assessment are
+(a) to help learners prepare for the summative assessment and
+(b) to tell them and their instructor <em>during the lesson</em>
+whether they’re making progress (and if not, what obstacles they have hit).
+If lesson episodes are 10-15 minutes long,
+then formative assessments should take no more than 5 minutes.
+This means that formative assessments should be:</p><ul>
+  <li>multiple choice questions,</li>
+  <li>Parsons Problems (in which the learner is given the parts of the solution in scrambled order and has to put them in the right order),</li>
+  <li>debugging exercises (in which the learner is given a few lines of code that do the wrong thing and asked to find and fix the bug), or</li>
+  <li>extensions of examples show in the lecture.</li>
+</ul><p>Good formative assessments do <em>not</em> require learners to write lots of code from scratch:
+it takes too long,
+there are usually too many possible right solutions to discuss in just a couple of minutes,
+and many novices find a blank page (or screen) intimidating.</p><blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Lessons are design in four stages: conceptual, summative, formative, and connective.</p>
+</li>
+    
+  </ul>
+</blockquote><h1 class="maintitle">GitHub, Markdown, and Jekyll</h1><blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 10 min
+      <br>
+      <strong>Exercises:</strong> 0 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How are pages published?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Explain how GitHub Pages produce web sites from Git repositories.</p>
+</li>
+	
+	<li><p>Explain Jekyll’s formatting rules.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote><p>This episode describes the tools we use to build and manage lessons.
+These simplify many tasks, but make other things more complicated.</p><h2 id="repositories-on-github">Repositories on GitHub</h2><p>Our lessons are stored in Git repositories (or “repos”) on GitHub.
+We use the term <em>fork</em> to mean “a copy of a GitHub-hosted repo that is also hosted on GitHub”
+and the term <em>clone</em> to mean “a copy of a GitHub-hosted repo that’s located on someone else’s machine”.
+In both cases,
+the duplicate has a reference that points to the original repo.</p><p>In an ideal world,
+we would put all of the common files used by our lessons
+(such as the CSS style files and the image files with project logos)
+in a template repo.
+The master copy of each lesson would be a fork of that repo,
+and each author’s working copy would be a fork of that master:</p><p><img src="../fig/forking.svg" alt="Forking Repositories"></p><p>However, GitHub only allows a user to have one fork of any particular repo.
+This creates a problem for us because an author may be involved in writing several lessons,
+each with its own repo.
+We therefore use <a href="https://import.github.com/">GitHub Importer</a> to create new lessons.
+After the lesson has been created,
+we manually add the <a href="https://github.com/swcarpentry/styles">template repository</a> as a remote called <code class="highlighter-rouge">template</code>
+to update the lesson when the template changes.</p><p><img src="../fig/repository-links.svg" alt="Repository Links"></p><h2 id="github-pages">GitHub Pages</h2><p>If a repository has a branch called <code class="highlighter-rouge">gh-pages</code> (short for “GitHub Pages”),
+GitHub publishes its content to create a website for the repository.
+If the repository’s URL is <code class="highlighter-rouge">https://github.com/USERNAME/REPOSITORY</code>,
+the website is <code class="highlighter-rouge">https://USERNAME.github.io/REPOSITORY</code>.</p><p>GitHub Pages sites can include static HTML pages,
+which are published as-is,
+or they can use <a href="http://jekyllrb.com/">Jekyll</a> as described below
+to compile HTML and/or Markdown pages with embedded directives
+to create the pages for display.</p><blockquote class="callout">
+  <h2 id="why-doesnt-my-site-appear">Why Doesn’t My Site Appear?</h2>
+
+  <p>If the root directory of a repository contains a file called <code class="highlighter-rouge">.nojekyll</code>,
+GitHub will <em>not</em> generate a website for that repository’s <code class="highlighter-rouge">gh-pages</code> branch.</p>
+</blockquote><p>We write lessons in Markdown because it’s simple to learn
+and isn’t tied to any specific language.
+(The ReStructured Text format popular in the Python world,
+for example,
+is a complete unknown to R programmers.)
+If authors want to write lessons in something else,
+such as <a href="http://rmarkdown.rstudio.com/">R Markdown</a>,
+they must generate HTML or Markdown that <a href="http://jekyllrb.com/">Jekyll</a> can process
+and commit that to the repository.
+A <a href="/04-formatting/">later episode</a> describes the Markdown we use.</p><blockquote class="callout">
+  <h2 id="teaching-tools">Teaching Tools</h2>
+
+  <p>We do <em>not</em> prescribe what tools instructors should use when actually teaching:
+the <a href="https://jupyter.org/">Jupyter Notebook</a>,
+<a href="https://www.rstudio.com/">RStudio</a>,
+and the good ol’ command line are equally welcome up on stage.
+All we specify is the format of the lesson notes.</p>
+</blockquote><h2 id="jekyll">Jekyll</h2><p>GitHub uses <a href="http://jekyllrb.com/">Jekyll</a> to turn Markdown into HTML.
+It looks for text files that begin with a header formatted like this:</p><div class="source highlighter-rouge"><pre class="highlight"><code>---
+variable: value
+other_variable: other_value
+---
+...stuff in the page...
+</code></pre>
+</div><p>and inserts the values of those variables into the page when formatting it.
+The three dashes that start the header <em>must</em> be the first three characters in the file:
+even a single space before them will make <a href="http://jekyllrb.com/">Jekyll</a> ignore the file.</p><p>The header’s content must be formatted as <a href="http://yaml.org/">YAML</a>,
+and may contain Booleans, numbers, character strings, lists, and dictionaries of name/value pairs.
+Values from the header are referred to in the page as <code class="highlighter-rouge">page.variable</code>.
+For example,
+this page:</p><div class="source highlighter-rouge"><pre class="highlight"><code>---
+name: Science
+---
+Today we are going to study .
+</code></pre>
+</div><p>is translated into:</p><div class="source highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;p&gt;</span>Today we are going to study Science.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div><blockquote class="callout">
+  <h2 id="back-in-the-day">Back in the Day…</h2>
+
+  <p>The previous version of our template did not rely on Jekyll,
+but instead required authors to build HTML on their desktops
+and commit that to the lesson repository’s <code class="highlighter-rouge">gh-pages</code> branch.
+This allowed us to use whatever mix of tools we wanted for creating HTML (e.g., <a href="https://pandoc.org/">Pandoc</a>),
+but complicated the common case for the sake of uncommon cases,
+and didn’t model the workflow we want learners to use.</p>
+</blockquote><h2 id="configuration">Configuration</h2><p><a href="http://jekyllrb.com/">Jekyll</a> also reads values from a configuration file called <code class="highlighter-rouge">_config.yml</code>,
+which are referred to in pages as <code class="highlighter-rouge">site.variable</code>.
+The <a href="https://github.com/swcarpentry/styles">lesson template</a> does <em>not</em> include <code class="highlighter-rouge">_config.yml</code>,
+since each lesson will change some of its value,
+which would result in merge collisions each time the lesson was updated from the template.
+Instead,
+the <a href="https://github.com/swcarpentry/styles">template</a> contains a script called <code class="highlighter-rouge">bin/lesson_initialize.py</code>
+which should be run <em>once</em> to create an initial <code class="highlighter-rouge">_config.yml</code> file
+(and a few other files as well).
+The author should then edit the values in the top half of the file.</p><h2 id="collections">Collections</h2><p>If several Markdown files are stored in a directory whose name begins with an underscore,
+<a href="http://jekyllrb.com/">Jekyll</a> creates a <a href="https://jekyllrb.com/docs/collections/">collection</a> for them.
+We rely on this for both lesson episodes (stored in <code class="highlighter-rouge">_episodes</code>)
+and extra files (stored in <code class="highlighter-rouge">_extras</code>).
+For example,
+putting the extra files in <code class="highlighter-rouge">_extras</code> allows us to populate the “Extras” menu pulldown automatically.
+To clarify what will appear where,
+we store files that appear directly in the navigation bar
+in the root directory of the lesson.
+<a href="/03-organization/">The last episode</a> describes these files.</p><blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Lessons are stored in Git repositories on GitHub.</p>
+</li>
+    
+    <li><p>Lessons are written in Markdown.</p>
+</li>
+    
+    <li><p>Jekyll translates the files in the gh-pages branch into HTML for viewing.</p>
+</li>
+    
+    <li><p>The site’s configuration is stored in _config.yml.</p>
+</li>
+    
+    <li><p>Each page’s configuration is stored at the top of that page.</p>
+</li>
+    
+    <li><p>Groups of files are stored in collection directories whose names begin with an underscore.</p>
+</li>
+    
+  </ul>
+</blockquote><h1 class="maintitle">Lesson Organization</h1><blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 10 min
+      <br>
+      <strong>Exercises:</strong> 0 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How are the files in a lesson organized?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Explain overall organization of lesson files.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote><p>Each lesson is made up of <em>episodes</em> that are 10-30 minutes long
+(including time for both teaching and exercises).
+The episodes of this lesson explain the tools we use to create lessons
+and the formatting rules those lessons must follow.</p><blockquote class="callout">
+  <h2 id="why-episodes">Why “Episodes”?</h2>
+
+  <p>We call the parts of lessons “episodes” because
+every other term (like “topic”) already has multiple meanings,
+and because it encourages us to think of breaking up our lessons
+into chunks that are about as long as a typical movie scene,
+which is better for learning than long blocks without interruption.</p>
+</blockquote><p>Our lessons need artwork,
+CSS style files,
+and a few bits of Javascript.
+We could load these from the web,
+but that would make offline authoring difficult.
+Instead, each lesson’s repository is self-contained.</p><p>The diagram below shows how source files and directories are laid out,
+and how they are mapped to destination files and directories:</p><p><img src="../fig/file-mapping.svg" alt="Source and Destination Files"></p><blockquote class="callout">
+  <h2 id="collections">Collections</h2>
+
+  <p>As described <a href="/02-tooling/#collections">earlier</a>,
+files that appear as top-level items in the navigation menu are stored in the root directory.
+Files that appear under the “extras” menu are stored in the <code class="highlighter-rouge">_extras</code> directory,
+while lesson episodes are stored in the <code class="highlighter-rouge">_episodes</code> directory.</p>
+</blockquote><h2 id="helper-files">Helper Files</h2><p>As is standard with <a href="http://jekyllrb.com/">Jekyll</a> sites,
+page layouts are stored in <code class="highlighter-rouge">_layouts</code>
+and snippets of HTML included by these layouts are stored in <code class="highlighter-rouge">_includes</code>.
+Each of these files includes a comment explaining its purpose.</p><p>Authors do not have to specify that episodes use the <code class="highlighter-rouge">episode.html</code> layout,
+since that is set by the configuration file.
+Pages that authors create should have the <code class="highlighter-rouge">page</code> layout unless specified otherwise below.</p><p>The <code class="highlighter-rouge">assets</code> directory contains the CSS, Javascript, fonts, and image files
+used in the generated website.
+Authors should not modify these.</p><h1 id="standard-files">Standard Files</h1><p>When the lesson repository is first created,
+the initial author should create a <code class="highlighter-rouge">README.md</code> file containing
+a one-line explanation of the lesson’s purpose.</p><p>The <a href="https://github.com/swcarpentry/styles">lesson template</a> provides the following files
+which should <em>not</em> be modified:</p><ul>
+  <li><code class="highlighter-rouge">CONDUCT.md</code>: the code of conduct.</li>
+  <li><code class="highlighter-rouge">LICENSE.md</code>: the lesson license.</li>
+  <li><code class="highlighter-rouge">Makefile</code>: commands for previewing the site, cleaning up junk, etc.</li>
+</ul><h2 id="starter-files">Starter Files</h2><p>The <code class="highlighter-rouge">bin/lesson_initialize.py</code> script creates files that need to be customized for each lesson.</p><h3 id="contributingmd"><code class="highlighter-rouge">CONTRIBUTING.md</code></h3><p>Contribution guidelines.
+The <code class="highlighter-rouge">issues</code> and <code class="highlighter-rouge">repo</code> links at the bottom of the file must be changed
+to match the URLs of the lesson:
+look for uses of <code class="highlighter-rouge"><span class="p">{</span><span class="err">LESSON-NAME</span><span class="p">}</span></code>.</p><h3 id="configyml"><code class="highlighter-rouge">_config.yml</code></h3><p>The <a href="http://jekyllrb.com/">Jekyll</a> configuration file.
+This must be edited so that its links and other settings are correct for this lesson.</p><ul>
+  <li>
+    <p><code class="highlighter-rouge">carpentry</code> should be either “dc” (for Data Carpentry) or “swc” (for Software Carpentry).</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">title</code> is the title of your lesson,
+e.g.,
+“Defence Against the Dark Arts”.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">email</code> is the contact email address for the lesson.</p>
+  </li>
+</ul><h3 id="citation"><code class="highlighter-rouge">CITATION</code></h3><p>A plain text file explaining how to cite this lesson.</p><h3 id="authors"><code class="highlighter-rouge">AUTHORS</code></h3><p>A plain text file listing the names of the lesson’s authors.</p><h3 id="indexmd"><code class="highlighter-rouge">index.md</code></h3><p>The home page for the lesson.</p><ol>
+  <li>It must use the <code class="highlighter-rouge">index</code> layout.</li>
+  <li>It must <em>not</em> have a <code class="highlighter-rouge">title</code> field in its <a href="http://yaml.org/">YAML</a> header.</li>
+  <li>It must open with a few paragraphs of explanatory text.</li>
+  <li>That introduction must be followed by a single <code class="highlighter-rouge">.prereq</code> blockquote
+detailing the lesson’s prerequisites.
+(Setup instructions appear separately.)</li>
+  <li>That must be followed by inclusion of <code class="highlighter-rouge">syllabus.html</code>,
+which generates the syllabus for the lesson
+from the metadata in its episodes.</li>
+</ol><h3 id="referencemd"><code class="highlighter-rouge">reference.md</code></h3><p>A reference guide for the lesson.</p><ol>
+  <li>It must use the <code class="highlighter-rouge">reference</code> layout.</li>
+  <li>Its title must be <code class="highlighter-rouge">"Reference"</code>.</li>
+  <li>Its permalink must be <code class="highlighter-rouge">/reference/</code>.</li>
+  <li>It should include a glossary, laid out as a description list.</li>
+  <li>It may include other material as appropriate.</li>
+</ol><p>The template will automatically generate a summary of the episodes’ key points.</p><h3 id="setupmd"><code class="highlighter-rouge">setup.md</code></h3><p>Detailed setup instructions for the lesson.</p><ol>
+  <li>It must use the <code class="highlighter-rouge">page</code> layout.</li>
+  <li>Its title must be <code class="highlighter-rouge">"Setup"</code>.</li>
+  <li>Its permalink must be <code class="highlighter-rouge">/setup/</code>.</li>
+  <li>It should include whatever setup instructions are required.</li>
+</ol><p>Note that we usually divide setup instructions by platform,
+e.g.,
+include level-2 headings for Windows, Mac OS X, and Linux
+with instructions for each.
+The <a href="https://github.com/swcarpentry/workshop-template">workshop template</a>
+links to the setup instructions for core lessons.</p><h3 id="extrasaboutmd"><code class="highlighter-rouge">_extras/about.md</code></h3><p>General notes about this lesson.
+This page includes brief descriptions of Software Carpentry and Data Carpentry,
+and is a good place to put institutional acknowledgments.</p><h3 id="extrasdiscussionmd"><code class="highlighter-rouge">_extras/discussion.md</code></h3><p>General discussion of the lesson contents for learners who wish to know more:</p><ol>
+  <li>It must use the <code class="highlighter-rouge">page</code> layout.</li>
+  <li>Its title must be <code class="highlighter-rouge">"Discussion"</code>.</li>
+  <li>Its permalink must be <code class="highlighter-rouge">/discuss/</code>.</li>
+  <li>It may include whatever content the author thinks appropriate.</li>
+</ol><p>This page normally includes links to further reading
+and/or brief discussion of more advanced topics.</p><h3 id="extrafiguresmd-and-includesallfigureshtml"><code class="highlighter-rouge">_extra/figures.md</code> and <code class="highlighter-rouge">_includes/all_figures.html</code></h3><p>Does nothing but include <code class="highlighter-rouge">_includes/all_figures.html</code>,
+which is (re)generated by <code class="highlighter-rouge">make lesson-figures</code>.
+This page displays all the images referenced by all of the episodes,
+in order,
+so that instructors can scroll through them while teaching.</p><h3 id="extrasguidemd"><code class="highlighter-rouge">_extras/guide.md</code></h3><p>The instructors’ guide for the lesson.</p><ol>
+  <li>It must use the <code class="highlighter-rouge">page</code> layout.</li>
+  <li>Its title must be <code class="highlighter-rouge">"Instructors' Guide"</code>.</li>
+  <li>Its permalink must be <code class="highlighter-rouge">/guide/</code>.</li>
+  <li>It may include whatever content the author thinks appropriate.</li>
+</ol><p>This page records tips and warnings from people who have taught the lesson.</p><blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Auxiliary files are stored in the _layouts, _includes, and assets directories.</p>
+</li>
+    
+    <li><p>The code of conduct, license, Makefile, and contribution guidelines should not be modified.</p>
+</li>
+    
+    <li><p>The README, authors’ list, and citation instructions must be updated for each lesson.</p>
+</li>
+    
+    <li><p>The home page, reference guide, setup instructions, discussion page, and instructors’ guide must be updated for each lesson.</p>
+</li>
+    
+    <li><p>The Makefile stores commonly-used commands.</p>
+</li>
+    
+  </ul>
+</blockquote><h1 class="maintitle">Formatting</h1><blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 10 min
+      <br>
+      <strong>Exercises:</strong> 0 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How are Software and Data Carpentry lessons formatted?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Explain the header of each episode.</p>
+</li>
+	
+	<li><p>Explain the overall structure of each episode.</p>
+</li>
+	
+	<li><p>Explain why blockquotes are used to format parts of episodes.</p>
+</li>
+	
+	<li><p>Explain the use of code blocks in episodes.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote><p>A lesson consists of one or more episodes,
+each of which has:</p><ul>
+  <li>a <a href="http://yaml.org/">YAML</a> header containing required values</li>
+  <li>some teachable content</li>
+  <li>some exercises</li>
+</ul><p>The diagram below shows the internal structure of a single episode file
+(click on the image to see a larger version):</p><p><a href="../fig/episode-format.png"><img src="../fig/episode-format-small.png" alt="Formatting Rules"></a></p><h2 id="locations-and-names">Locations and Names</h2><p>Episode files are stored in <code class="highlighter-rouge">_episodes</code>
+so that <a href="http://jekyllrb.com/">Jekyll</a> will create a <a href="https://jekyllrb.com/docs/collections/">collection</a> for them.
+Episodes are named <code class="highlighter-rouge">dd-subject.md</code>,
+where <code class="highlighter-rouge">dd</code> is a two-digit sequence number (with a leading 0)
+and <code class="highlighter-rouge">subject</code> is a one- or two-word identifier.
+For example,
+the first three episodes of this example lesson are
+<code class="highlighter-rouge">_episodes/01-design.md</code>,
+<code class="highlighter-rouge">_episodes/02-tooling.md</code>
+and <code class="highlighter-rouge">_episodes/03-formatting.md</code>.
+These become <code class="highlighter-rouge">/01-design/index.html</code>, <code class="highlighter-rouge">/02-tooling/index.html</code>, and <code class="highlighter-rouge">/03-formatting/index.html</code>
+in the published site.
+When referring to other episodes, use:</p><div class="highlighter-rouge"><pre class="highlight"><code>[link text]({{ site.github.url }}/dd-subject/)
+</code></pre>
+</div><p>i.e., use the episode’s directory path below the site root
+<em>without</em> the <code class="highlighter-rouge">index.html</code> (which the web server fills in automatically).
+This will ensure that the link is valid both when previewing during desktop development
+and when the site is published on GitHub.</p><h2 id="episode-header">Episode Header</h2><p>Each episode’s <a href="http://yaml.org/">YAML</a> header must contain:</p><ul>
+  <li>the episode’s title</li>
+  <li>time estimates for teaching and exercises</li>
+  <li>motivating questions</li>
+  <li>lesson objectives</li>
+  <li>a summary of key points</li>
+</ul><p>These values are stored in the header so that <a href="http://jekyllrb.com/">Jekyll</a> will read them
+and make them accessible in other pages as <code class="highlighter-rouge">site.episodes.the_episode.key</code>,
+where <code class="highlighter-rouge">the_episode</code> is the particular episode
+and <code class="highlighter-rouge">key</code> is the key in the <a href="http://yaml.org/">YAML</a> header.
+This lets us do things like
+list each episode’s key questions in the syllabus on the lesson home page.</p><h2 id="episode-structure">Episode Structure</h2><p>The episode layout template in <code class="highlighter-rouge">_layouts/episode.html</code> automatically creates
+an introductory block that summarizes the lesson’s teaching time,
+exercise time,
+key questions,
+and objectives.
+It also automatically creates a closing block that lists its key points.
+In between,
+authors should use only:</p><ul>
+  <li>paragraphs</li>
+  <li>images</li>
+  <li>tables</li>
+  <li>ordered and unordered lists</li>
+  <li>code samples (described below).</li>
+  <li>special blockquotes (described below)</li>
+</ul><p>Authors should <em>not</em> use:</p><ul>
+  <li>sub-headings</li>
+  <li>HTML layout (e.g., <code class="highlighter-rouge">div</code> elements).</li>
+</ul><h2 id="formatting-code">Formatting Code</h2><p>Inline code fragments are formatted using back-quotes.
+Longer code blocks are formatted by opening and closing the block with <code class="highlighter-rouge">~~~</code> (three tildes),
+with a class specifier after the block:</p><div class="highlighter-rouge"><pre class="highlight"><code>~~~
+for thing in collection:
+    do_something
+~~~
+{: .source}
+</code></pre>
+</div><p>which is rendered as:</p><div class="source highlighter-rouge"><pre class="highlight"><code>for thing in collection:
+    do_something
+</code></pre>
+</div><p>The class specified at the bottom using an opening curly brace and colon,
+the class identifier with a leading dot,
+and a closing curly brace.
+The <a href="https://github.com/swcarpentry/styles">template</a> provides three styles for code blocks:</p><div class="source highlighter-rouge"><pre class="highlight"><code>.source: program source.
+</code></pre>
+</div><div class="output highlighter-rouge"><pre class="highlight"><code>.output: program output.
+</code></pre>
+</div><div class="error highlighter-rouge"><pre class="highlight"><code>.error: error messages.
+</code></pre>
+</div><p>The following styles are all synonyms for <code class="highlighter-rouge">.source</code>;
+please use them where possible to indicate the type of source being displayed,
+in case we decide to adopt syntax highlighting at some point:</p><ul>
+  <li><code class="highlighter-rouge">.bash</code>: Bash shell commands</li>
+  <li><code class="highlighter-rouge">.make</code>: Makefiles</li>
+  <li><code class="highlighter-rouge">.matlab</code>: MATLAB source</li>
+  <li><code class="highlighter-rouge">.python</code>: Python source</li>
+  <li><code class="highlighter-rouge">.r</code>: R source</li>
+  <li><code class="highlighter-rouge">.sql</code>: SQL source</li>
+</ul><blockquote class="callout">
+  <h2 id="why-no-syntax-highlighting">Why No Syntax Highlighting?</h2>
+
+  <p>We do not use syntax highlighting for code blocks
+because some learners’ systems won’t do it,
+or will do it differently than what they see on screen.</p>
+</blockquote><h2 id="special-blockquotes">Special Blockquotes</h2><p>We use blockquotes to group headings and text
+rather than wrapping them in <code class="highlighter-rouge">div</code> elements.
+in order to avoid confusing <a href="http://jekyllrb.com/">Jekyll</a>’s parser
+(which sometimes has trouble with Markdown inside HTML).
+Each special blockquote must started with a level-2 header,
+but may contain anything after that.
+For example,
+a callout is formatted like this:</p><div class="source highlighter-rouge"><pre class="highlight"><code>&gt; ## Callout Title
+&gt;
+&gt; text
+&gt; text
+&gt; text
+&gt;
+&gt; ~~~
+&gt; code
+&gt; ~~~
+&gt; {: .source}
+{: .callout}
+</code></pre>
+</div><p>(Note the empty lines within the blockquote after the title and before the code block.)
+This is rendered as:</p><blockquote class="callout">
+  <h2 id="callout-title">Callout Title</h2>
+
+  <p>text
+text
+text</p>
+
+  <div class="source highlighter-rouge"><pre class="highlight"><code>code
+</code></pre>
+  </div>
+</blockquote><p>The <a href="https://github.com/swcarpentry/styles">lesson template</a> defines styles
+for the following special blockquotes:</p><div class="row">
+  <div class="col-md-6">
+
+    <blockquote class="callout">
+      <h2 id="callout">.callout</h2>
+
+      <p>An aside or other comment.</p>
+    </blockquote>
+
+    <blockquote class="challenge">
+      <h2 id="challenge"><code class="highlighter-rouge">.challenge</code></h2>
+
+      <p>An exercise.</p>
+    </blockquote>
+
+    <blockquote class="checklist">
+      <h2 id="checklist"><code class="highlighter-rouge">.checklist</code></h2>
+
+      <p>Checklists.</p>
+    </blockquote>
+
+    <blockquote class="discussion">
+      <h2 id="discussion"><code class="highlighter-rouge">.discussion</code></h2>
+
+      <p>Discussion questions.</p>
+    </blockquote>
+
+    <blockquote class="keypoints">
+      <h2 id="keypoints"><code class="highlighter-rouge">.keypoints</code></h2>
+
+      <p>Key points of an episode.</p>
+    </blockquote>
+
+  </div>
+  <div class="col-md-6">
+
+    <blockquote class="objectives">
+      <h2 id="objectives"><code class="highlighter-rouge">.objectives</code></h2>
+
+      <p>Episode objectives.</p>
+    </blockquote>
+
+    <blockquote class="prereq">
+      <h2 id="prereq"><code class="highlighter-rouge">.prereq</code></h2>
+
+      <p>Prerequisites.</p>
+    </blockquote>
+
+    <blockquote class="solution">
+      <h2 id="solution"><code class="highlighter-rouge">.solution</code></h2>
+
+      <p>Exercise solution.</p>
+    </blockquote>
+
+    <blockquote class="testimonial">
+      <h2 id="testimonial"><code class="highlighter-rouge">.testimonial</code></h2>
+
+      <p>A laudatory quote from a user.</p>
+    </blockquote>
+
+  </div>
+</div><p>Note that <code class="highlighter-rouge">.challenge</code> and <code class="highlighter-rouge">.discussion</code> have the same color but different icons.
+Note also that one other class, <code class="highlighter-rouge">.quotation</code>,
+is used to mark actual quotations
+(the original purpose of the blockquote element).
+This does not add any styling,
+but is used to prevent the checking tools from complaining about a missing class.</p><p>Most authors will only use <code class="highlighter-rouge">.callout</code>, <code class="highlighter-rouge">.challenge</code>, and <code class="highlighter-rouge">.prereq</code>,
+as the others are automatically generated by the template.
+Note that <code class="highlighter-rouge">.prereq</code> is meant for describing things that learners should know before starting this lesson;
+setup instructions do not have a particular style,
+but are instead put on the <code class="highlighter-rouge">setup.md</code> page.</p><p>Note also that solutions are nested inside exercises as shown below:</p><div class="source highlighter-rouge"><pre class="highlight"><code>&gt; ## Challenge Title
+&gt;
+&gt; This is the body of the challenge.
+&gt;
+&gt; ~~~
+&gt; it may include some code
+&gt; ~~~
+&gt; {: .source}
+&gt;
+&gt; &gt; ## Solution
+&gt; &gt;
+&gt; &gt; This is the body of the solution.
+&gt; &gt;
+&gt; &gt; ~~~
+&gt; &gt; it may also include some code
+&gt; &gt; ~~~
+&gt; &gt; {: .output}
+&gt; {: .solution}
+{: .challenge}
+</code></pre>
+</div><p>The double indentation is annoying to edit,
+but the alternatives we considered and discarded are worse:</p><ol>
+  <li>
+    <p>Use HTML <code class="highlighter-rouge">&lt;div&gt;</code> elements for the challenges.
+Most people dislike mixing HTML and Markdown,
+and experience shows that it’s all too easy to confuse Jekyll’s Markdown parser.</p>
+  </li>
+  <li>
+    <p>Put solutions immediately after challenges rather than inside them.
+This is simpler to edit,
+but clutters up the page
+and makes it harder for tools to tell which solutions belong to which exercises.</p>
+  </li>
+</ol><blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Lesson episodes are stored in _episodes/dd-subject.md.</p>
+</li>
+    
+    <li><p>Each episode’s title must include a title, time estimates, motivating questions, lesson objectives, and key points.</p>
+</li>
+    
+    <li><p>Episodes should not use sub-headings or HTML layout.</p>
+</li>
+    
+    <li><p>Code blocks can be have the source, regular output, or error class.</p>
+</li>
+    
+    <li><p>Special sections are formatted as blockquotes that open with a level-2 header and close with a class identifier.</p>
+</li>
+    
+    <li><p>Special sections may be callouts or challenges; other styles are used by the template itself.</p>
+</li>
+    
+  </ul>
+</blockquote><h1 class="maintitle">Checking and Previewing</h1><blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 5 min
+      <br>
+      <strong>Exercises:</strong> 0 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How can lesson formatting be checked?</p>
+</li>
+	
+	<li><p>How can lessons be previewed?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Run the lesson checking script and interpret its output correctly.</p>
+</li>
+	
+	<li><p>Preview a lesson locally.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote><p>The lesson template comes with several utilities to simplify lesson development and maintenance.</p><h2 id="checking">Checking</h2><p>The template includes a Python program to check
+whether lesson files conform to our template.
+You can run this using <code class="highlighter-rouge">make lesson-check</code>,
+which in turn invokes <code class="highlighter-rouge">bin/markdown_ast.rb</code> to parse Markdown files
+and <code class="highlighter-rouge">bin/lesson_check.py</code> to check their structure.
+The former is written in Ruby,
+and uses Jekyll’s own Markdown parser (called Kramdown)
+so that we are guaranteed to be checking the same dialect of Markdown that Jekyll uses on GitHub.
+The latter is written in Python 3,
+and executes all of the checks.</p><p>The template also includes <code class="highlighter-rouge">bin/repo_check.py</code>,
+which can be invoked by running <code class="highlighter-rouge">make repo-check</code>.
+This program looks in <code class="highlighter-rouge">_config.yml</code> to find the repository’s URL,
+then checks that the repository has the right labels set up for issues and pull requests.
+Other checks will be added as time goes by.</p><h2 id="previewing">Previewing</h2><p><a href="http://jekyllrb.com/">Jekyll</a> can be used in two ways:
+to compile source files into HTML pages in the <code class="highlighter-rouge">_site</code> directory,
+or to do that and also run a small web server at <a href="http://0.0.0.0:4000/">http://0.0.0.0:4000/</a>
+so that the pages can be previewed.
+We recommend using the latter,
+since it gives a more accurate impression of what your lesson will actually look like.</p><p>The Makefile in the root directory of the project contains commands for building the site.
+<code class="highlighter-rouge">make site</code> builds files but does not run a server,
+while <code class="highlighter-rouge">make serve</code> builds the files and runs a server.
+(It also re-builds the site whenever it notices changes in the source files.)
+Run <code class="highlighter-rouge">make</code> on its own to get a full list of commands.</p><p>In order to use Jekyll and/or the checking script,
+you may need to install it and some other software.
+The <a href="/setup/">setup instructions</a> explain what you need and how to get it.</p><h2 id="displaying-figures">Displaying Figures</h2><p>The command <code class="highlighter-rouge">make lesson-figures</code> uses the script <code class="highlighter-rouge">bin/make_figures.py</code>
+to regenerate <code class="highlighter-rouge">includes/all_figures.html</code>,
+which links to every figure used in the episodes (in order).
+Instructors can scroll through this page to display figures while teaching.</p><blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Lessons are checked by running <code class="highlighter-rouge">make lesson-check</code>.</p>
+</li>
+    
+    <li><p>The checker uses the same Markdown parser as Jekyll.</p>
+</li>
+    
+    <li><p>Lessons can be previewed by running <code class="highlighter-rouge">make serve</code>.</p>
+</li>
+    
+  </ul>
+</blockquote><h1 class="maintitle">Using RMarkdown</h1><blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 10 min
+      <br>
+      <strong>Exercises:</strong> 2 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How to write a lesson using RMarkdown?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Explain how to use RMarkdown with the new lesson template.</p>
+</li>
+	
+	<li><p>Demonstrate how to include pieces of code, figures, and challenges.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote><p>This episode demonstrates all the features that can be used when writing a
+lesson in RMarkdown.</p><p>This first chunk is really important, and should be included in all markdown lessons.</p><p>The rest of the lesson should be written as a normal RMarkdown file. You can
+include chunk for codes, just like you’d normally do:</p><p>Normal output:</p><div class="r highlighter-rouge"><pre class="highlight"><code>1 + 1
+</code></pre>
+</div><div class="output highlighter-rouge"><pre class="highlight"><code>[1] 2
+</code></pre>
+</div><p>Output with error message:</p><div class="r highlighter-rouge"><pre class="highlight"><code>x[10]
+</code></pre>
+</div><div class="output highlighter-rouge"><pre class="highlight"><code>[1] NA
+</code></pre>
+</div><p>Output generating figures:</p><div class="r highlighter-rouge"><pre class="highlight"><code>library(ggplot2)
+ggplot(diamonds, aes(x = carat,  y = price, color = cut)) +
+    geom_point()
+</code></pre>
+</div><p><img src="../fig/rmd-plot-example-1.png" title="plot of chunk plot-example" alt="plot of chunk plot-example" style="display: block; margin: auto;"></p><p>For the challenges and their solutions, you need to pay attention to the where
+the <code class="highlighter-rouge">&gt;</code> go and where to leave blank lines. Otherwise, you can include chunks in
+it to include instructions and solutions.</p><blockquote class="challenge">
+  <h2 id="challenge-can-you-do-it">Challenge: Can you do it?</h2>
+
+  <p>What is the output of this command?</p>
+
+  <div class="r highlighter-rouge"><pre class="highlight"><code>paste("This", "new", "template", "looks", "good")
+</code></pre>
+  </div>
+
+  <blockquote class="solution">
+    <h2 id="solution">Solution</h2>
+
+    <div class="output highlighter-rouge"><pre class="highlight"><code>[1] "This new template looks good"
+</code></pre>
+    </div>
+  </blockquote>
+</blockquote><blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>It shouldn’t be difficult</p>
+</li>
+    
+  </ul>
+</blockquote><h1 class="maintitle">Maintenance</h1><blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 5 min
+      <br>
+      <strong>Exercises:</strong> 0 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>What do lesson maintainers do?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Explain the rights and responsibilities of lesson maintainers.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote><p>This episode describes the processes used to maintain our lessons.</p><h2 id="maintainers">Maintainers</h2><p>Each Software or Data Carpentry lesson has one or two maintainers,
+who are responsible for making sure issues and change requests are looked at,
+and who have final say over what is included in the lesson.
+Together,
+they also decide on changes to the lesson templates,
+release procedure,
+and other mechanical aspects of lesson production.
+They are <em>not</em> responsible for writing lesson content or deciding what lessons ought to exist:
+the former comes from the community,
+and the latter from the Executive Directors and Steering Committees of Software and Data Carpentry.</p><p>The process for selecting and onboarding a new maintainer is:</p><ul>
+  <li>Outgoing maintainer emails the discussion list to announce the opportunity
+    <ul>
+      <li>Application information includes name, github username, statement of intent.</li>
+      <li>Deadline for applications, projected timeline for selection.</li>
+      <li>Name/email of contact for application process (typically outgoing maintainer).</li>
+    </ul>
+  </li>
+  <li>Applications accumulate over a week or two.</li>
+  <li>Outgoing maintainer and their co-maintainer review applications and choose new maintainer.</li>
+  <li>The new maintainer is informed, and other applicants are thanked via email.</li>
+  <li>To onboard the new maintainer:
+    <ul>
+      <li>Add new maintainer to the maintainers’ list.</li>
+      <li>Email the maintainers to announce the change.</li>
+      <li>Request push/merge access for new maintainer from the Software or Data Carpentry executive director.</li>
+      <li>Write a blog post introducing new maintainer.</li>
+      <li>Optional: call between outgoing/incoming maintainer to discuss state of the repository, transition strategy, etc.</li>
+    </ul>
+  </li>
+</ul><h2 id="release-process-and-schedule">Release Process and Schedule</h2><p>We have decided to use a <strong>6-month release cycle</strong> for releases, which
+will be named by the year and month they happen, e.g., <code class="highlighter-rouge">2016.05</code>.</p><ol>
+  <li>Each lesson lives in the <code class="highlighter-rouge">gh-pages</code> branch of its own repository.</li>
+  <li>When a release has to be made,
+ the <em>lesson maintainer</em> (or maintainers) create a branch named after the release, e.g., <code class="highlighter-rouge">2016.05</code>.</li>
+  <li>A <em>release maintainer</em> generates HTML pages for that release and add them to the branch.</li>
+  <li>If there isn’t already a directory for that release in the <code class="highlighter-rouge">swc-release</code> repository,
+the release maintainer creates one
+and adds an <code class="highlighter-rouge">index.html</code> page to it.</li>
+  <li>The release maintainer adds a submodule to the release directory of <code class="highlighter-rouge">swc-release</code>
+that points to the newly-created release branch of the lesson.</li>
+</ol><h2 id="issue-labels-in-repositories">Issue Labels in Repositories</h2><p>Our repositories use the following labels (and colors) for issues and pull requests:</p><ul>
+  <li><code class="highlighter-rouge">bug</code> (#bd2c00): errors to be fixed.</li>
+  <li><code class="highlighter-rouge">discussion</code> (#fc8dc1): discussion threads.</li>
+  <li><code class="highlighter-rouge">enhancement</code> (#9cd6dc): new features.</li>
+  <li><code class="highlighter-rouge">help-wanted</code> (#f4fd9c): requests for assistance.</li>
+  <li><code class="highlighter-rouge">instructor-training</code> (#6e5494): pull requests submitted as part of instructor training.</li>
+  <li><code class="highlighter-rouge">newcomer-friendly</code> (#eec275): suitable for people who are still learning the ropes.</li>
+  <li><code class="highlighter-rouge">question</code> (#808040): often turn into discussion threads.</li>
+  <li><code class="highlighter-rouge">template-and-tools</code> (#2b3990): issues related to the templates and tools rather than the lessons themselves.</li>
+  <li><code class="highlighter-rouge">work-in-progress</code> (#7ae78): someone is still working on this.</li>
+</ul><blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Each lesson has one or two maintainers who act as editors.</p>
+</li>
+    
+    <li><p>Maintainers are responsible for ensuring that issues and change requests are addressed.</p>
+</li>
+    
+    <li><p>Maintainers have final say over lesson content.</p>
+</li>
+    
+    <li><p>We use a standard set of labels to classify issues and pull requests.</p>
+</li>
+    
+  </ul>
+</blockquote>
