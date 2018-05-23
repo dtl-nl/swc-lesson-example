@@ -8,9 +8,9 @@ before_install:
   - rvm default
   - gem install json kramdown jekyll
   - sudo apt-get install -y r-base
-  - sudo Rscript -e "install.packages('knitr', dependencies = TRUE)"
-  - sudo Rscript -e "install.packages('stringr', dependencies = TRUE)"
-  - sudo Rscript -e "install.packages('checkpoint', dependencies = TRUE)"
+  - sudo Rscript -e "install.packages('knitr', repos = 'http://cran.us.r-project.org', dependencies = TRUE)"
+  - sudo Rscript -e "install.packages('stringr', repos = 'http://cran.us.r-project.org', dependencies = TRUE)"
+  - sudo Rscript -e "install.packages('checkpoint', repos = 'http://cran.us.r-project.org', dependencies = TRUE)"
 install:
   - pip install pyyaml
 script:
