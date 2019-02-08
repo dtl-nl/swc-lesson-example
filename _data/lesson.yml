@@ -1,19 +1,44 @@
-# Overall title for pages.
-title: "Lesson Title"
+
 
 # Metadata
 # Here you can add metadata to describe your lesson
 # so that people and search engines can understand what it's about.
 # Please try to use fields from the Schema.org CreativeWork type - https://schema.org/CreativeWork
+
+# Minimal fields, those have to be filled in
+# Overall title for pages.
+title: "Lesson Title" # this is bioschemas "name"
 description:    "This is the template description. Keep me brief (2-3 sentences)"
 keywords:  # see: https://schema.org/keywords
   - GitHub
   - Forking
   - Collaborative
+  
+# Recommended fields
+skillLevel: "beginner" # eg. beginner, intermediate, advanced
+identifier: "https://github.com/carpentries/lesson-example" # should be github URL until first release, and Zenodo DOI pointing to latest release aftwerwards
+url: "http://carpentries.github.io/lesson-example/" # URL of renderred lesson
+about: [{ # use ontologies, can use BioPortal (https://bioportal.bioontology.org) to find relevant term
+  "@type": "DefinedTerm", 
+  "@id": "http://edamontology.org/topic_3068", 
+  "inDefinedTermSet": "http://edamontology.org",
+  "termCode": "topic_3068",
+  "name": "Literature and language",
+  "Url": "https://www.ebi.ac.uk/ols/ontologies/edam/terms?iri=http%3A%2F%2Fedamontology.org%2Ftopic_3068"
+  }]
+inLanguage: "en-US" # in IETF BCP47 format https://tools.ietf.org/html/bcp47
+license: "https://creativecommons.org/licenses/by/3.0/"  # see: schema.org/license
+mentions: [{ # what the lesson mentions but is not about
+  "@type": "SoftwareAplication",
+  "name": "markdown",
+  "url": "https://en.wikipedia.org/wiki/Markdown",
+  "description": "a lightweight markup language with plain text formatting syntax"
+}]
+timeRequired:   "1 hour" # see: https://schema.org/timeRequired https://en.wikipedia.org/wiki/ISO_8601#Durations
+
 audience:  # see: https://schema.org/audience
   - PostDoc students
   - Early Career Researchers
-license:        "https://creativecommons.org/licenses/by/3.0/"  # see: schema.org/license
 author:  # see: https://schema.org/author
   - Homer Simpson
   - Ned Flanders
